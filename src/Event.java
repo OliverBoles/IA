@@ -2,7 +2,19 @@
 public class Event {
 
     private int period;
+    private String date;
     private String name;
     private String room;
+
+    /*public Event(int period, String date, String name, String room) {
+        this.period = period;
+        this.date = date;
+        this.name = name;
+        this.room = room;
+    }*/
+
+    public String getRoom(){
+        return room;
+    }
 
 }
