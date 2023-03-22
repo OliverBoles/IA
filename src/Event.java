@@ -13,8 +13,11 @@ public class Event {
         this.room = room;
     }*/
 
-    public String getRoom(){
-        return room;
+    public boolean getRoom(String v){
+        if (room == v) {
+            return true;
+        }
+        return false;
     }
 
 }

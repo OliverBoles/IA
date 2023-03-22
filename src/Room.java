@@ -1,6 +1,14 @@
+import java.util.Scanner;
+
 public class Room{
-    public Room(String roomFree) {
+    private boolean roomFree;
+
+    public boolean Room() {
         Event fr = new Event();
-        roomFree = fr.getRoom();
+        Scanner roomRequest = new Scanner(System.in);
+        System.out.println("what room do you want to book");
+        String hold = roomRequest.next();
+        roomFree = fr.getRoom(hold);
+        return roomFree;
     }
 }
