@@ -4,7 +4,7 @@ public class Event {
     private int period;
     private String date;
     private String name;
-    private String room;
+    private String[] room = {"H12","H13","H14","H15","J1"};
 
     /*public Event(int period, String date, String name, String room) {
         this.period = period;
@@ -14,8 +14,10 @@ public class Event {
     }*/
 
     public boolean getRoom(String v){
-        if (room == v) {
-            return true;
+        for (int i=0; i< room.length; i++) {
+            if (room[i].equals(v)) {
+                return true;
+            }
         }
         return false;
     }
