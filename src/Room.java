@@ -1,15 +1,12 @@
-import java.util.Scanner;
-
 public class Room{
-    private boolean roomFree;
+    private String[] room = {"H12","H13","H14","H15","J1"};
 
-    public boolean Room() {
-        Event fr = new Event();
-        Scanner roomRequest = new Scanner(System.in);
-        System.out.println("what room do you want to book");
-        String hold = roomRequest.next();
-        roomFree = fr.getRoom(hold);
-        return roomFree;
-
+    public String getRoom(String v){
+        for (int i=0; i< room.length; i++) {
+            if (room[i].equals(v)) {
+                return v;
+            }
+        }
+        return null;
     }
 }
