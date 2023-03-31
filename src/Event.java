@@ -3,7 +3,7 @@ import java.util.Scanner;
 //Stores location of user booking
 public class Event {
 
-    private int period;
+    private String period;
     private String date;
     private String name;
     private String room;
@@ -19,7 +19,7 @@ public class Event {
         //checks if the room is real
         if (roomCheck == null) {
             System.out.println("this is not a valid room");
-            Event.room();
+            return null;
         }
         return rr.getRoom(room);
     }
@@ -29,7 +29,12 @@ public class Event {
         Scanner dateRequest = new Scanner(System.in);
         System.out.println("what period do you want to book");
         String holdTime = dateRequest.next();
-        return tr.getTime(holdTime);
+        String timeCheck = tr.getTime(holdTime);
+        if (timeCheck == null) {
+            System.out.println("this is not a valid time");
+            return null;
+        }
+        return timeCheck;
     }
 
 

@@ -13,7 +13,7 @@ public class DateTime {
     public String getTime (String timeRequest){
         for (int i = 0; i< period.length; i++) {
             if (period[i].equals(timeRequest)) {
-                return period[i];
+                return timeRequest;
             }
         }
         return null;
