@@ -3,11 +3,6 @@ import java.util.Scanner;
 //Stores location of user booking
 public class Event {
 
-    private String period;
-    private String date;
-    private String name;
-    private String room;
-
     //gets info on room wanted to book
     public static String room(){
         Room rr = new Room();
@@ -30,6 +25,7 @@ public class Event {
         System.out.println("what period do you want to book");
         String holdTime = dateRequest.next();
         String timeCheck = tr.getTime(holdTime);
+        //checks if the booking is an actual time
         if (timeCheck == null) {
             System.out.println("this is not a valid time");
             return null;
