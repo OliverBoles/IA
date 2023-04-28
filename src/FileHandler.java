@@ -213,5 +213,23 @@ public class FileHandler {
         }
     }
 
+    public static boolean containsString(String fileName,String element){
+        boolean hasFound = false;
+        try(BufferedReader pw = new BufferedReader(new FileReader(fileName))){
+            String ascii;
+            while (hasFound == false){
+                ascii = pw.readLine();
+                if(ascii.equals(element)){
+                    hasFound = true;
+                    return hasFound;
+                }
+            }
+            return hasFound;
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

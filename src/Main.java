@@ -9,15 +9,22 @@ public class Main {
         }
 
         String freeTime = Event.timeBooked();
-        while (freeTime == null) {
+        if (freeTime == null) {
             freeTime = Event.timeBooked();
         }
+        System.out.println(freeTime);
 
-        FileHandler.arrayListRead("DataBase");
-        FileHandler.readFromFile("DataBase",1);
 
-        //writes data to file
-        FileHandler.writeToFile("DataBase","Room " + RoomOpen + " at " + freeTime, true);
+        String booking = "Room " + RoomOpen + " at " + freeTime;
+        //reads through the file and checks if the booking is already there
+        //if booking isn't there it writes booking
+        //if booking already exists doesn't write booking
+        if (FileHandler.containsString("DataBase",booking) == false){
+            FileHandler.writeToFile("DataBase",booking, true);
+            System.out.println("Room has been booked");
+        } else {
+            System.out.println("Room is already booked by someone else");
+        }
 
     }
 }
