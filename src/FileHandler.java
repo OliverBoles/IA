@@ -219,7 +219,7 @@ public class FileHandler {
             String ascii;
             while (hasFound == false){
                 ascii = pw.readLine();
-                if (ascii.equals(null)) {
+                if (ascii == null) {
                     return hasFound;
                 } if(ascii.equals(element)){
                     hasFound = true;

@@ -19,7 +19,7 @@ public class Main {
         //reads through the file and checks if the booking is already there
         //if booking isn't there it writes booking
         //if booking already exists doesn't write booking
-        if (FileHandler.containsString("DataBase",booking) == false){
+        if (!FileHandler.containsString("DataBase",booking)){
             FileHandler.writeToFile("DataBase",booking, true);
             System.out.println("Room has been booked");
         } else {
