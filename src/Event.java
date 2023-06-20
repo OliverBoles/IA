@@ -22,6 +22,7 @@ public class Event {
         Scanner dateRequest = new Scanner(System.in);
         System.out.println("what period do you want to book");
         String holdTime = dateRequest.next();
+        tr.getDate();
         // checks if the booking is an actual time
         if (tr.getTime(holdTime) == null) {
             return timeBooked();
