@@ -11,8 +11,7 @@ public class DateTime {
     }
 
     public String getDate(){
-        WeekdaySelector ws = new WeekdaySelector();
-        ws.
+        return null;
     }
 
     public String getTime (String timeRequest){
