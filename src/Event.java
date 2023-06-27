@@ -30,6 +30,14 @@ public class Event {
         return holdTime;
     }
 
+    public static String Date() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the day: ");
+        int day = scanner.nextInt();
+        System.out.print("Enter the month: ");
+        int month = scanner.nextInt();
+    }
+
 
 
 }
