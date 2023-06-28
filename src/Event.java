@@ -36,6 +36,7 @@ public class Event {
         int day = scanner.nextInt();
         System.out.print("Enter the month: ");
         int month = scanner.nextInt();
+        return null;
     }
 
 

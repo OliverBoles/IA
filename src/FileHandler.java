@@ -233,5 +233,44 @@ public class FileHandler {
         return false;
     }
 
+    //checks if string is in a file
+    public static String readForString(String fileName,String element){
+        try{
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            // loops through the file
+            while (line != element){
+                if (line.equals(element)) {
+                    return element;
+                }
+                line = br.readLine();
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ArrayList<String> readWholeFile(String fileName){
+        ArrayList<String> output = new ArrayList<>();
+        String line = null;
+        try{
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+            line = br.readLine();
+            while (line!=null){
+                line = br.readLine();
+                output.add(line);
+            }
+            return output;
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return output;
+    }
+
 
 }

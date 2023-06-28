@@ -13,13 +13,24 @@ public class SchoolCalendar {
     }
     // give a day and month and returns string from array list
     public String getDate(String v) {
-        if (isTermDate(v)==true);
+        v = getDay() + getMonth();
+        if (FileHandler.containsString("DataBase",v)) {
+            return FileHandler.readForString("DataBase",v);
+        }
         return null;
     }
     // 2 functions one that returns month and one that returns day
+    public String getDay() {
+        return null;
+    }
+
+    public String getMonth() {
+        return null;
+    }
     // constructor reads from csv file each record in this format
     // wednesday 21 june, thursday 22 june... etc.
-    // bank holidays and other weekday non school days are included but flagged
+
+    termDays=FileHandler.readWholeFile("Dates.CSV")
 
 
 }
