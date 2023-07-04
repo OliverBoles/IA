@@ -2,52 +2,40 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SchoolCalendar {
-    private ArrayList<String> termDays;
+    private final ArrayList<String> termDays;
 
     public SchoolCalendar(){
         termDays=FileHandler.readWholeFile("Dates.CSV");
         System.out.println(termDays);
     }
 
-
-    // is in term time (true false function)
-    public boolean isTermDate(String DateRequest){
-
-        return false;
-    }
     // give a day and month and returns string from array list
     public String getDate() {
         String a = getMonth();
         String b = getDay();
-        String v = " " + a + " " + b;
-        for (int i = 1; i < termDays.size()-1; i++) {
-            System.out.println(termDays.get(i));
-            if (termDays.get(i).equals(v)) {
-                return termDays.get(i); // Return the searchTerm is found
+        System.out.println("the day is " + b);
+        String v = a + " " + b;
+        for (String element : termDays) {
+            //removes the first character and last 2 characters from the element
+            String modifiedElement = element.substring(1, element.length() - 2);
+            if (modifiedElement.contains(v)) {
+                return modifiedElement; // Return the searchTerm is found
             }
         }
         return null; // Return null if the searchTerm is not found in the ArrayList
     }
 
-    // 2 functions one that returns month and one that returns day
+    //function that asks user to input a day of the month they want to book the room
     public String getDay() {
         Scanner roomRequest = new Scanner(System.in);
-        System.out.println("what day of the month do you want to book the room > ");
-        String dayRequest = roomRequest.next();
-        return dayRequest;
+        System.out.println("what day of the month do you want to book the room >> e.g. 01, 09, 16, 20 etc");
+        return roomRequest.next();
     }
 
+    //function that asks user to input a month they want to book the room
     public String getMonth() {
         Scanner roomRequest = new Scanner(System.in);
         System.out.println("what month do you want to book");
-        String monthRequest = roomRequest.next();
-        return monthRequest;
+        return roomRequest.next();
     }
-
-
-    // constructor reads from csv file each record in this format
-    // wednesday 21 june, thursday 22 june... etc.
-
-
-
 }

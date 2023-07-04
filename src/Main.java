@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         SchoolCalendar sc = new SchoolCalendar();
-        System.out.println("The date you chose is     " + sc.getDate());
+        String dateBooked = sc.getDate();
         String RoomOpen = Event.room();
         String freeTime = Event.timeBooked();
 
-        String booking = "Room " + RoomOpen + " at " + freeTime;
+        String booking = "Room " + RoomOpen + " at " + freeTime + " on " + dateBooked;
         // reads through the file and checks if the booking is already there
         // if booking isn't there it writes booking
         if (!FileHandler.containsString("DataBase",booking)){
@@ -14,7 +14,6 @@ public class Main {
         } else {    // if booking already exists doesn't write booking
             System.out.println("Room is already booked by someone else");
         }
-
     }
 }
 
