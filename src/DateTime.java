@@ -2,8 +2,8 @@ public class DateTime {
     private String[] period={"P0","P1","P2","P3","P4","P5","P6","P7","P8"};
 
     public String getTime (String timeRequest){
-        for (int i = 0; i< period.length; i++) {
-            if (period[i].equals(timeRequest)) {
+        for (String s : period) {
+            if (s.equals(timeRequest)) {
                 return timeRequest;
             }
         }

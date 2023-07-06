@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+        GUImain gui = new GUImain();
         SchoolCalendar sc = new SchoolCalendar();
         String dateBooked = sc.getDate();
         String RoomOpen = Event.room();
@@ -17,9 +18,6 @@ public class Main {
     }
 }
 
-//TODO import term dates from csv
-//TODO build gui class to show term dates
-//TODO import current bookings from csv
 //TODO check for existing bookings when you click a date
 //TODO show buttons for available rooms when you click on a date
 //TODO gui class to add a new booking
