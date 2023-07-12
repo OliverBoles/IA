@@ -15,19 +15,19 @@ public class GUImain extends JFrame implements ActionListener {
     public GUImain() {
         frame = new JFrame("Home");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setBounds(0,0, 500, 500);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setLayout(null);
         newGraph = new JButton("book room");
-        newGraph.setBounds(50, 50, 400, 40);
+        newGraph.setBounds(500, 50, 400, 40);
         newGraph.addActionListener(this);
         newGraph1 = new JButton("view rooms");
-        newGraph1.setBounds(50, 150, 400, 40);
+        newGraph1.setBounds(500, 150, 400, 40);
         newGraph1.addActionListener(this);
         newGraph2 = new JButton("view bookings");
-        newGraph2.setBounds(50, 250, 400, 40);
+        newGraph2.setBounds(500, 250, 400, 40);
         newGraph2.addActionListener(this);
         newGraph3 = new JButton("close program");
-        newGraph3.setBounds(50, 350, 400, 40);
+        newGraph3.setBounds(500, 350, 400, 40);
         newGraph3.addActionListener(this);
         frame.getContentPane().add(newGraph);
         frame.getContentPane().add(newGraph1);

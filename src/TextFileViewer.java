@@ -10,7 +10,10 @@ public class TextFileViewer extends JFrame {
 
     public TextFileViewer(String filePath) {
         super("Text File Viewer");
+
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         textArea = new JTextArea();
         JScrollPane scrollPane = new JScrollPane(textArea);

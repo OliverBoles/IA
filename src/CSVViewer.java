@@ -8,9 +8,11 @@ import java.io.FileReader;
 
 public class CSVViewer extends JFrame {
     private JTable table;
+    private JFrame frame;
 
     public CSVViewer(String filePath) {
         super("CSV Viewer");
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         table = new JTable();
