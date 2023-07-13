@@ -35,8 +35,7 @@ public class CSVViewer extends JFrame {
 
         loadCSV(filePath);
 
-        pack();
-        setLocationRelativeTo(null);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(true);
     }
 

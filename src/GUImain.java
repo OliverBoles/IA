@@ -39,7 +39,7 @@ public class GUImain extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("book room")) {
-            Basic test = new Basic(500,500);
+            SchoolCalendarGUI test = new SchoolCalendarGUI();
             frame.dispose();
         }
         if (e.getActionCommand().equals("view rooms")) {

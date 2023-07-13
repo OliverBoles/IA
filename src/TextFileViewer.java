@@ -37,8 +37,7 @@ public class TextFileViewer extends JFrame {
 
         displayTextFile(filePath);
 
-        pack();
-        setLocationRelativeTo(null);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(true);
     }
 
