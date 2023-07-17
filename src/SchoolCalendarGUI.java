@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class SchoolCalendarGUI extends JFrame {
     private JTextField dayTextField;
     private JTextField monthTextField;
+    private JTextField roomTextField;
+    private JTextField timeTextField;
     private JTextArea resultTextArea;
 
     private SchoolCalendar schoolCalendar;
@@ -26,21 +28,37 @@ public class SchoolCalendarGUI extends JFrame {
         dayTextField = new JTextField(2);
 
         JLabel monthLabel = new JLabel("Month:");
-        monthTextField = new JTextField(2);
+        monthTextField = new JTextField(12);
+
+        JLabel roomLabel = new JLabel("Room Number:");
+        roomTextField = new JTextField(2);
+
+        JLabel timeLabel = new JLabel("Period:");
+        timeTextField = new JTextField(2);
 
         inputPanel.add(dayLabel);
         inputPanel.add(dayTextField);
         inputPanel.add(monthLabel);
         inputPanel.add(monthTextField);
+        inputPanel.add(roomLabel);
+        inputPanel.add(roomTextField);
+        inputPanel.add(timeLabel);
+        inputPanel.add(timeTextField);
 
         // Create the button to get the date
-        JButton getDateButton = new JButton("Get Date");
+        JButton getDateButton = new JButton("Book Room");
         getDateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String day = dayTextField.getText();
+                schoolCalendar.getDay();
                 String month = monthTextField.getText();
-                String dateBooked = schoolCalendar.getDate(month, day);
+                schoolCalendar.getMonth();
+                String roomNumber = roomTextField.getText();
+                Event.room();
+                String time = timeTextField.getText();
+                Event.timeBooked();
+                String dateBooked = schoolCalendar.getDate();
                 resultTextArea.setText(dateBooked);
             }
         });
