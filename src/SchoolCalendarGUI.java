@@ -1,28 +1,23 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class SchoolCalendarGUI extends JFrame {
     private JTextField dayTextField;
     private JTextField monthTextField;
-    private JTextField roomTextField;
-    private JTextField timeTextField;
     private JTextArea resultTextArea;
 
     private SchoolCalendar schoolCalendar;
 
     public SchoolCalendarGUI() {
-        // Create and configure the main JFrame
-        setTitle("School Calendar");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(400, 300));
-        setLayout(new BorderLayout());
+        super("School Calendar");
 
-        // Create and configure the input components
-        JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new FlowLayout());
+        // Create an instance of the SchoolCalendar class
+        schoolCalendar = new SchoolCalendar();
+
+        // Set up the GUI components
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         JLabel dayLabel = new JLabel("Day:");
         dayTextField = new JTextField(2);
@@ -30,63 +25,52 @@ public class SchoolCalendarGUI extends JFrame {
         JLabel monthLabel = new JLabel("Month:");
         monthTextField = new JTextField(12);
 
-        JLabel roomLabel = new JLabel("Room Number:");
-        roomTextField = new JTextField(2);
-
-        JLabel timeLabel = new JLabel("Period:");
-        timeTextField = new JTextField(2);
-
-        inputPanel.add(dayLabel);
-        inputPanel.add(dayTextField);
-        inputPanel.add(monthLabel);
-        inputPanel.add(monthTextField);
-        inputPanel.add(roomLabel);
-        inputPanel.add(roomTextField);
-        inputPanel.add(timeLabel);
-        inputPanel.add(timeTextField);
-
-        // Create the button to get the date
-        JButton getDateButton = new JButton("Book Room");
-        getDateButton.addActionListener(new ActionListener() {
+        JButton searchButton = new JButton("Search");
+        searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String day = dayTextField.getText();
-                schoolCalendar.getDay();
-                String month = monthTextField.getText();
-                schoolCalendar.getMonth();
-                String roomNumber = roomTextField.getText();
-                Event.room();
-                String time = timeTextField.getText();
-                Event.timeBooked();
-                String dateBooked = schoolCalendar.getDate();
-                resultTextArea.setText(dateBooked);
+                searchDate();
             }
         });
 
-        inputPanel.add(getDateButton);
-
-        // Create and configure the result text area
-        resultTextArea = new JTextArea();
+        resultTextArea = new JTextArea(10, 30);
         resultTextArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(resultTextArea);
 
-        // Add the components to the JFrame
-        add(inputPanel, BorderLayout.NORTH);
-        add(new JScrollPane(resultTextArea), BorderLayout.CENTER);
+        panel.add(dayLabel);
+        panel.add(dayTextField);
+        panel.add(monthLabel);
+        panel.add(monthTextField);
+        panel.add(searchButton);
+        panel.add(scrollPane);
 
-        pack();
+        add(panel);
+
+        setSize(1920, 1080);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
 
-        // Create an instance of SchoolCalendar
-        schoolCalendar = new SchoolCalendar();
+    private String searchDate() {
+        String day = dayTextField.getText();
+        String month = monthTextField.getText();
+
+        String result = schoolCalendar.getDate(day, month);
+
+        if (result != null) {
+            resultTextArea.setText(result);
+        } else {
+            resultTextArea.setText("Date not found.");
+        }
+        return result;
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
             public void run() {
                 new SchoolCalendarGUI();
             }
         });
     }
-}
 
+}

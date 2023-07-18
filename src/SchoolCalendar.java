@@ -10,10 +10,9 @@ public class SchoolCalendar {
     }
 
     // give a day and month and returns string from array list
-    public String getDate() {
-        String a = getMonth();
-        String b = getDay();
-        System.out.println("the day is " + b);
+    public String getDate(String a, String b) {
+        a = getDay();
+        b = getMonth();
         String v = a + " " + b;
         for (String element : termDays) {
             //removes the first character and last 2 characters from the element

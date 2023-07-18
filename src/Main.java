@@ -1,12 +1,10 @@
 public class Main {
     public static void main(String[] args) {
         GUImain gui = new GUImain();
-        SchoolCalendar sc = new SchoolCalendar();
-        String dateBooked = sc.getDate();
         String RoomOpen = Event.room();
         String freeTime = Event.timeBooked();
 
-        String booking = "Room " + RoomOpen + " at " + freeTime + " on " + dateBooked;
+        String booking = "Room " + RoomOpen + " at " + freeTime + " on " + gui;
         // reads through the file and checks if the booking is already there
         // if booking isn't there it writes booking
         if (!FileHandler.containsString("DataBase",booking)){
