@@ -16,6 +16,7 @@ public class GUImain extends JFrame implements ActionListener {
         frame = new JFrame("Home");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true); // Remove the window decorations (title bar, close button, etc.)
         frame.setLayout(null);
         newGraph = new JButton("book room");
         newGraph.setBounds(500, 50, 400, 40);

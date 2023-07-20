@@ -36,6 +36,8 @@ public class CSVViewer extends JFrame {
         loadCSV(filePath);
 
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setUndecorated(true); // Remove the window decorations (title bar, close button, etc.)
+
         setVisible(true);
     }
 

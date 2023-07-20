@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -6,6 +7,8 @@ public class SchoolCalendarGUI extends JFrame {
     private JTextField dayTextField;
     private JTextField monthTextField;
     private JTextArea resultTextArea;
+    private JTextField roomTextField;
+    private JTextField timeTextField;
 
     private SchoolCalendar schoolCalendar;
 
@@ -20,10 +23,16 @@ public class SchoolCalendarGUI extends JFrame {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         JLabel dayLabel = new JLabel("Day:");
-        dayTextField = new JTextField(2);
+        dayTextField = new JTextField(10);
 
         JLabel monthLabel = new JLabel("Month:");
-        monthTextField = new JTextField(12);
+        monthTextField = new JTextField(10);
+
+        JLabel roomLabel = new JLabel("Room:");
+        roomTextField = new JTextField(10);
+
+        JLabel timeLabel = new JLabel("Time:");
+        timeTextField = new JTextField(10);
 
         JButton searchButton = new JButton("Search");
         searchButton.addActionListener(new ActionListener() {
@@ -41,28 +50,36 @@ public class SchoolCalendarGUI extends JFrame {
         panel.add(dayTextField);
         panel.add(monthLabel);
         panel.add(monthTextField);
+        panel.add(roomLabel);
+        panel.add(roomTextField);
+        panel.add(timeLabel);
+        panel.add(timeTextField);
         panel.add(searchButton);
         panel.add(scrollPane);
 
         add(panel);
 
-        setSize(1920, 1080);
+        setExtendedState(JFrame.MAXIMIZED_BOTH); // Set the frame to be maximized
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
-    private String searchDate() {
+    private void searchDate() {
         String day = dayTextField.getText();
+        System.out.println(day);
         String month = monthTextField.getText();
+        System.out.println(month);
+        String room = roomTextField.getText();
+        String time = timeTextField.getText();
 
-        String result = schoolCalendar.getDate(day, month);
-
-        if (result != null) {
-            resultTextArea.setText(result);
-        } else {
-            resultTextArea.setText("Date not found.");
+        String validcheck = schoolCalendar.checkBooking(day, month, room, time);
+        if(validcheck.equals("null")){
+            NotValidWindow nvw = new NotValidWindow();
+            dispose();
         }
-        return result;
+        GUImain home = new GUImain();
+        dispose();
     }
 
     public static void main(String[] args) {
@@ -72,5 +89,4 @@ public class SchoolCalendarGUI extends JFrame {
             }
         });
     }
-
 }

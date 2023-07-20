@@ -1,31 +1,23 @@
-import java.util.Scanner;
 
 //Stores location of user booking
 public class Event {
 
     // gets info on room wanted to book
-    public static String room(){
+    public static String room(String room){
         Room rr = new Room();
-        //ask user what room they want to book
-        Scanner roomRequest = new Scanner(System.in);
-        System.out.println("what room do you want to book");
-        String roomNum = roomRequest.next();
         //checks if the room is real
-        if (rr.getRoom(roomNum) == null) {
-            return room();
+        if (rr.getRoom(room) == null) {
+            return "null";
         }
-        return roomNum;
+        return room;
     }
 
-    public static String timeBooked() {
+    public static String timeBooked(String time) {
         DateTime tr = new DateTime();
-        Scanner dateRequest = new Scanner(System.in);
-        System.out.println("what period do you want to book");
-        String holdTime = dateRequest.next();
         // checks if the booking is an actual time
-        if (tr.getTime(holdTime) == null) {
-            return timeBooked();
+        if (tr.getTime(time) == null) {
+            return "null";
         }
-        return holdTime;
+        return time;
     }
 }
